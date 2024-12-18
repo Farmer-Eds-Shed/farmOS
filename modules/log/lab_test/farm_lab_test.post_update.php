@@ -130,7 +130,7 @@ function farm_lab_test_post_update_migrate_lab_terms(&$sandbox) {
 
     // If the log didn't load, throw an update exception.
     if (empty($log)) {
-      throw new UpdateException('Could not load log. ID: @id', ['@id' => $id]);
+      throw new UpdateException('Could not load log. ID: ' . $id);
     }
 
     // Assign the new lab taxonomy term.
