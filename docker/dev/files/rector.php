@@ -8,6 +8,7 @@
 declare(strict_types=1);
 
 use DrupalFinder\DrupalFinderComposerRuntime;
+use DrupalRector\Rector\PHPUnit\ShouldCallParentMethodsRector;
 use DrupalRector\Set\Drupal10SetList;
 use Rector\Config\RectorConfig;
 
@@ -30,4 +31,13 @@ return static function (RectorConfig $rectorConfig): void {
   $rectorConfig->fileExtensions(['php', 'module', 'theme', 'install', 'profile', 'inc', 'engine']);
   $rectorConfig->importNames(TRUE, FALSE);
   $rectorConfig->importShortClasses(FALSE);
+
+  // Temporarily disable ShouldCallParentMethodsRector in LocationTest.
+  // @todo Issue #3494872: Remove farm_install_modules() installation task
+  // @see https://www.drupal.org/project/farm/issues/3183739
+  $rectorConfig->skip([
+    ShouldCallParentMethodsRector::class => [
+      '*/modules/core/location/tests/src/Functional/LocationTest.php',
+    ],
+  ]);
 };
