@@ -51,7 +51,7 @@ class AssetInventory implements AssetInventoryInterface {
   /**
    * {@inheritdoc}
    */
-  public function getInventory(AssetInterface $asset, string $measure = '', int $units = 0, $timestamp = NULL): array {
+  public function getInventory(AssetInterface $asset, string $measure = '', string|int|null $units = NULL, $timestamp = NULL): array {
 
     // If the asset is new, it won't have inventory.
     if ($asset->isNew()) {
@@ -90,13 +90,13 @@ class AssetInventory implements AssetInventoryInterface {
    *   The asset we are querying inventory of.
    * @param string $measure
    *   The quantity measure of the inventory. See quantity_measures().
-   * @param int $units
+   * @param string|int|null $units
    *   The quantity units of the inventory (term ID).
    *
    * @return array
    *   An array of arrays. Each array will have a 'measure' and 'units' key.
    */
-  protected function getMeasureUnitsPairs(AssetInterface $asset, string $measure = '', int $units = 0) {
+  protected function getMeasureUnitsPairs(AssetInterface $asset, string $measure = '', string|int|null $units = NULL) {
 
     // If both a measure and units are provided, that is the only pair.
     if (!empty($measure) && !empty($units)) {
@@ -143,7 +143,7 @@ class AssetInventory implements AssetInventoryInterface {
    *   The asset we are querying inventory of.
    * @param string $measure
    *   The quantity measure of the inventory. See quantity_measures().
-   * @param int $units
+   * @param string|int|null $units
    *   The quantity units of the inventory (term ID).
    * @param int|null $timestamp
    *   Include logs with a timestamp less than or equal to this.
@@ -152,7 +152,7 @@ class AssetInventory implements AssetInventoryInterface {
    * @return int|null
    *   Returns a unix timestamp, or NULL if no "reset" adjustment is available.
    */
-  protected function getLatestResetTimestamp(AssetInterface $asset, string $measure = '', int $units = 0, $timestamp = NULL) {
+  protected function getLatestResetTimestamp(AssetInterface $asset, string $measure = '', string|int|null $units = NULL, $timestamp = NULL) {
 
     // Query the database for the latest asset "reset" adjustment timestamp.
     $query = $this->baseQuery($asset, $measure, $units, $timestamp);
@@ -168,7 +168,7 @@ class AssetInventory implements AssetInventoryInterface {
    *   The asset we are querying inventory of.
    * @param string $measure
    *   The quantity measure of the inventory. See quantity_measures().
-   * @param int $units
+   * @param string|int|null $units
    *   The quantity units of the inventory (term ID).
    * @param int|null $timestamp
    *   Include logs with a timestamp less than or equal to this.
@@ -177,7 +177,7 @@ class AssetInventory implements AssetInventoryInterface {
    * @return \Drupal\fraction\Fraction
    *   Returns a Fraction object representing the total inventory.
    */
-  protected function calculateInventory(AssetInterface $asset, string $measure = '', int $units = 0, $timestamp = NULL) {
+  protected function calculateInventory(AssetInterface $asset, string $measure = '', string|int|null $units = NULL, $timestamp = NULL) {
 
     // Query the database for inventory adjustments of the given asset,
     // measure, and units.
@@ -220,7 +220,7 @@ class AssetInventory implements AssetInventoryInterface {
    *   The asset we are querying inventory of.
    * @param string $measure
    *   The quantity measure of the inventory. See quantity_measures().
-   * @param int $units
+   * @param string|int|null $units
    *   The quantity units of the inventory (term ID).
    * @param int|null $timestamp
    *   Include logs with a timestamp less than or equal to this.
@@ -230,7 +230,7 @@ class AssetInventory implements AssetInventoryInterface {
    *   An array of objects with the following properties: type (reset,
    *   increment, or decrement), numerator, and denominator.
    */
-  protected function getAdjustments(AssetInterface $asset, string $measure = '', int $units = 0, $timestamp = NULL) {
+  protected function getAdjustments(AssetInterface $asset, string $measure = '', string|int|null $units = NULL, $timestamp = NULL) {
 
     // First, query the database to find the timestamp of the most recent
     // "reset" adjustment log for this asset (if available).
@@ -263,7 +263,7 @@ class AssetInventory implements AssetInventoryInterface {
    *   The asset we are querying inventory of.
    * @param string $measure
    *   The quantity measure of the inventory. See quantity_measures().
-   * @param int $units
+   * @param string|int|null $units
    *   The quantity units of the inventory (term ID).
    * @param int|null $timestamp
    *   Include logs with a timestamp less than or equal to this.
@@ -272,7 +272,7 @@ class AssetInventory implements AssetInventoryInterface {
    * @return \Drupal\Core\Database\Query\SelectInterface
    *   A database query object.
    */
-  protected function baseQuery(AssetInterface $asset, string $measure = '', int $units = 0, $timestamp = NULL) {
+  protected function baseQuery(AssetInterface $asset, string $measure = '', string|int|null $units = NULL, $timestamp = NULL) {
 
     // If $timestamp is NULL, use the current time.
     if (is_null($timestamp)) {

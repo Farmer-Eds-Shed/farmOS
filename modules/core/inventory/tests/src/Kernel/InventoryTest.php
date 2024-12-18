@@ -338,7 +338,7 @@ class InventoryTest extends KernelTestBase {
    *   The value of the adjustment.
    * @param string $measure
    *   The quantity measure of the inventory. See quantity_measures().
-   * @param int $units
+   * @param string|int|null $units
    *   The quantity units of the inventory (term ID).
    * @param int|null $timestamp
    *   Optionally specify the timestamp when the adjustment occured.
@@ -347,7 +347,7 @@ class InventoryTest extends KernelTestBase {
    * @return \Drupal\log\Entity\LogInterface
    *   The log entity.
    */
-  protected function adjustInventory(AssetInterface $asset, string $adjustment, string $value, string $measure = '', int $units = 0, $timestamp = NULL) {
+  protected function adjustInventory(AssetInterface $asset, string $adjustment, string $value, string $measure = '', string|int|null $units = NULL, $timestamp = NULL) {
     $fraction = Fraction::createFromDecimal($value);
     /** @var \Drupal\quantity\Entity\Quantity $quantity */
     $quantity = Quantity::create([
