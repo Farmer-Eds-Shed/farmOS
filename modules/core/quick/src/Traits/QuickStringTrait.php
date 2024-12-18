@@ -121,7 +121,7 @@ trait QuickStringTrait {
           $parts[] = $value;
         }
         else {
-          $parts[] = $this->trimString($value, $non_priority_max_length);
+          $parts[] = $this->trimString($value, (int) $non_priority_max_length);
         }
       }
       return $this->trimString(implode(' ', $parts), $max_length);
