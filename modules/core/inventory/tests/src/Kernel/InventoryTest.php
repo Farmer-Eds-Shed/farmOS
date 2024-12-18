@@ -304,9 +304,9 @@ class InventoryTest extends KernelTestBase {
     }
 
     // Create a series of inventory adjustment logs.
-    $this->adjustInventory($asset, 'reset', 1, '', 0, $timestamps[0]);
-    $this->adjustInventory($asset, 'increment', 99, '', 0, $timestamps[1]);
-    $this->adjustInventory($asset, 'decrement', 10, '', 0, $timestamps[2]);
+    $this->adjustInventory($asset, 'reset', '1', '', 0, $timestamps[0]);
+    $this->adjustInventory($asset, 'increment', '99', '', 0, $timestamps[1]);
+    $this->adjustInventory($asset, 'decrement', '10', '', 0, $timestamps[2]);
 
     // Confirm that the inventory is zero before all adjustments.
     $timestamp = $now - 86400;
