@@ -53,7 +53,7 @@ class NotificationTest extends DataStreamTestBase {
     // Create a basic data stream for testing.
     $this->dataStream = $this->createDataStreamEntity([
       'type' => 'basic',
-      'private_key' => hash('md5', mt_rand()),
+      'private_key' => hash('md5', (string) mt_rand()),
       'public' => FALSE,
     ]);
 
