@@ -119,7 +119,7 @@ USER www-data
 # Build the farmOS codebase in ${BUILD_PATH}.
 RUN /usr/local/bin/build-farmOS.sh
 
-# Add dev configurartions for PHP CodeSniffer and PHPStan.
+# Add dev configurations for PHP CodeSniffer, PHPStan, and Rector.
 COPY --chown=www-data ./dev/files/ ${BUILD_PATH}/
 
 # Configure PHPUnit.
