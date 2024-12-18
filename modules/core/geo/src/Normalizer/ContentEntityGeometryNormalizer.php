@@ -44,7 +44,7 @@ class ContentEntityGeometryNormalizer implements NormalizerInterface, Serializer
   /**
    * {@inheritdoc}
    */
-  public function normalize($object, $format = NULL, array $context = []) {
+  public function normalize($object, $format = NULL, array $context = []): array|bool|string|int|float|null|\ArrayObject {
 
     // Build GeometryWrapper objects.
     $geometries = [];
@@ -101,7 +101,7 @@ class ContentEntityGeometryNormalizer implements NormalizerInterface, Serializer
   /**
    * {@inheritdoc}
    */
-  public function supportsNormalization($data, $format = NULL) {
+  public function supportsNormalization($data, $format = NULL): bool {
 
     // Check that the data is a content entity.
     // Only formats that are prefixed with "geometry_" are supported.
