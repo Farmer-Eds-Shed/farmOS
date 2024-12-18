@@ -25,6 +25,6 @@ interface AssetInventoryInterface {
    * @return array
    *   Returns an array of asset inventory information.
    */
-  public function getInventory(AssetInterface $asset, string $measure = '', string|int|null $units = NULL, $timestamp = NULL): array;
+  public function getInventory(AssetInterface $asset, string $measure = '', string|int|null $units = NULL, int|null $timestamp = NULL): array;
 
 }
