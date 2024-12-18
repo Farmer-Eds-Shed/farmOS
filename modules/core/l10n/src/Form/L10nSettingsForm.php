@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_l10n\Form;
 
 use Drupal\Core\Config\ConfigFactoryInterface;

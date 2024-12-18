@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\farm_id_tag\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;

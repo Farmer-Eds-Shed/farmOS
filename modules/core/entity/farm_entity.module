@@ -5,6 +5,8 @@
  * Contains farm_entity.module.
  */
 
+declare(strict_types=1);
+
 use Drupal\Core\Entity\ContentEntityFormInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeInterface;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\data_stream_notification\Form;
 
 use Drupal\Core\Entity\EntityForm;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_flag\Form;
 
 use Drupal\Core\Entity\EntityFieldManagerInterface;

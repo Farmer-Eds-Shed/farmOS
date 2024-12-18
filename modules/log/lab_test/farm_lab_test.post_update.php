@@ -5,6 +5,8 @@
  * Post update hooks for the farm_lab_test module.
  */
 
+declare(strict_types=1);
+
 use Drupal\Core\Utility\UpdateException;
 use Drupal\farm_lab_test\Entity\FarmLabTestType;
 use Drupal\taxonomy\Entity\Term;

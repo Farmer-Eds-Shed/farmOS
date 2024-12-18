@@ -5,6 +5,8 @@
  * The farmOS Export CSV module.
  */
 
+declare(strict_types=1);
+
 use Drupal\farm_export_csv\Form\EntityCsvActionForm;
 use Drupal\farm_export_csv\Routing\EntityCsvActionRouteProvider;
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_field\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Datetime\DrupalDateTime;

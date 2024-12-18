@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\quantity\Plugin\migrate\process;
 
 use Drupal\Component\Utility\NestedArray;

@@ -5,6 +5,8 @@
  * Post update hooks for the farm_log module.
  */
 
+declare(strict_types=1);
+
 use Drupal\log\Entity\LogType;
 
 /**

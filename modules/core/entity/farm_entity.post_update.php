@@ -5,6 +5,8 @@
  * Post update hooks for the farm_entity module.
  */
 
+declare(strict_types=1);
+
 /**
  * Enforce entity reference integrity on plan reference fields.
  */

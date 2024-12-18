@@ -5,6 +5,8 @@
  * Contains farm_entity_views.module.
  */
 
+declare(strict_types=1);
+
 use Drupal\farm_entity_views\FarmEntityViewsData;
 use Drupal\farm_entity_views\FarmLogViewsData;
 use Drupal\farm_entity_views\FarmQuantityViewsData;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\data_stream\Plugin\migrate\destination;
 
 use Drupal\migrate\Plugin\migrate\destination\EntityContentBase;

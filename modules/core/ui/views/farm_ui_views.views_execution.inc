@@ -5,6 +5,8 @@
  * Provides Views runtime hooks for farm_ui_views.module.
  */
 
+declare(strict_types=1);
+
 use Drupal\Core\Entity\Sql\SqlContentEntityStorageException;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Views;

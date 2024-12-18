@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_import_csv\Controller;
 
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;

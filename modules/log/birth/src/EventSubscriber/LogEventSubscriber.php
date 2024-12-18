@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_birth\EventSubscriber;
 
 use Drupal\Core\Messenger\MessengerInterface;

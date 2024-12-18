@@ -5,6 +5,8 @@
  * The farmOS UI Theme module.
  */
 
+declare(strict_types=1);
+
 use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
 use Drupal\Core\Form\FormStateInterface;

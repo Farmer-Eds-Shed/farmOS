@@ -5,6 +5,8 @@
  * Provides Views runtime hooks for farm_ui_map.module.
  */
 
+declare(strict_types=1);
+
 use Drupal\asset\Entity\AssetType;
 use Drupal\views\Entity\View;
 use Drupal\views\ViewExecutable;

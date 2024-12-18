@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_ui_theme\Plugin\Block;
 
 use Drupal\system\Plugin\Block\SystemPoweredByBlock;
