@@ -2,6 +2,8 @@
 
 namespace Drupal\farm_quick\Traits;
 
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+
 /**
  * Provides methods for generating record name strings.
  */
@@ -10,7 +12,7 @@ trait QuickStringTrait {
   /**
    * Trims a string down to the specified length, respecting word boundaries.
    *
-   * @param string $value
+   * @param string|\Drupal\Core\StringTranslation\TranslatableMarkup $value
    *   The string which should be trimmed.
    * @param int $max_length
    *   Maximum length of the string, the rest gets truncated.
@@ -21,7 +23,12 @@ trait QuickStringTrait {
    * @return string
    *   The trimmed string.
    */
-  protected function trimString(string $value, int $max_length, string $suffix = '…') {
+  protected function trimString(string|TranslatableMarkup $value, int $max_length, string $suffix = '…') {
+
+    // Convert TranslatableMarkup to string.
+    if ($value instanceof TranslatableMarkup) {
+      $value = (string) $value;
+    }
 
     // First trim whitespace.
     $value = trim($value);
