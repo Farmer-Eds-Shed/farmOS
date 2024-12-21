@@ -7,10 +7,12 @@ namespace Drupal\farm_map\Plugin\Field\FieldWidget;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Field\Attribute\FieldWidget;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\File\FileSystem;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\farm_geo\Traits\WktTrait;
 use Drupal\file\FileInterface;
 use Drupal\geofield\GeoPHP\GeoPHPInterface;
@@ -21,15 +23,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Plugin implementation of the map 'geofield' widget.
- *
- * @FieldWidget(
- *   id = "farm_map_geofield",
- *   label = @Translation("farmOS Map"),
- *   field_types = {
- *     "geofield"
- *   }
- * )
  */
+#[FieldWidget(
+  id: 'farm_map_geofield',
+  label: new TranslatableMarkup('farmOS Map'),
+  field_types: ['geofield'],
+)]
 class GeofieldWidget extends GeofieldBaseWidget {
 
   use WktTrait;
