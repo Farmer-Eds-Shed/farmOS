@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace Drupal\asset\Plugin\Action;
 
+use Drupal\Core\Action\Attribute\Action;
 use Drupal\Core\Action\Plugin\Action\EntityActionBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\asset\Entity\AssetInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Action that clones an asset.
- *
- * @Action(
- *   id = "asset_clone_action",
- *   label = @Translation("Clone an asset"),
- *   type = "asset"
- * )
  */
+#[Action(
+  id: 'asset_clone_action',
+  label: new TranslatableMarkup('Clone an asset'),
+  type: 'asset',
+)]
 class AssetClone extends EntityActionBase {
 
   /**

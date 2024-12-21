@@ -4,25 +4,27 @@ declare(strict_types=1);
 
 namespace Drupal\farm_export_kml\Plugin\Action;
 
+use Drupal\Core\Action\Attribute\Action;
 use Drupal\Core\Action\Plugin\Action\EntityActionBase;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\File\FileUrlGeneratorInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\farm_export_kml\Plugin\Action\Derivative\EntityKmlDeriver;
 use Drupal\file\FileRepositoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Action that exports KML from an entity geofield.
- *
- * @Action(
- *   id = "entity:kml_action",
- *   action_label = @Translation("Export entity geometry as KML"),
- *   deriver = "Drupal\farm_export_kml\Plugin\Action\Derivative\EntityKmlDeriver",
- * )
  */
+#[Action(
+  id: 'entity:kml_action',
+  action_label: new TranslatableMarkup('Export entity geometry as KML'),
+  deriver: EntityKmlDeriver::class,
+)]
 class EntityKml extends EntityActionBase {
 
   /**

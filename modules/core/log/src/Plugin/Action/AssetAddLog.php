@@ -4,22 +4,23 @@ declare(strict_types=1);
 
 namespace Drupal\farm_log\Plugin\Action;
 
+use Drupal\Core\Action\Attribute\Action;
 use Drupal\Core\Action\Plugin\Action\EntityActionBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\TempStore\PrivateTempStoreFactory;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Action that adds a log referencing assets.
- *
- * @Action(
- *   id = "asset_add_log_action",
- *   label = @Translation("Add a log referencing assets."),
- *   type = "asset",
- *   confirm_form_route_name = "farm_log.asset_add_log_action_form"
- * )
  */
+#[Action(
+  id: 'asset_add_log_action',
+  label: new TranslatableMarkup('Add a log referencing assets.'),
+  type: 'asset',
+  confirm_form_route_name: 'farm_log.asset_add_log_action_form',
+)]
 class AssetAddLog extends EntityActionBase {
 
   /**
