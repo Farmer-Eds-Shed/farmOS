@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [Update Drupal core to 10.4.0 #900](https://github.com/farmOS/farmOS/pull/900)
 - [Update to stable Gin 4.0.0 #903](https://github.com/farmOS/farmOS/pull/903)
-- [Update simple_oauth to 6.0.0-beta7 #893](https://github.com/farmOS/farmOS/pull/`893`)
+- [Update simple_oauth to 6.0.0-beta7 #893](https://github.com/farmOS/farmOS/pull/893)
+- [Update simple_oauth to 6.0.0-beta8 #905](https://github.com/farmOS/farmOS/pull/905)
 
 ### Fixed
 
