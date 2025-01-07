@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.3.3] 2025-01-07
 
+Note: The `farmos/farmos:3.x` and `farmos/farmos:3.3.3` Docker images include
+PHP 8.3 (because it is based on the `drupal:10.4` Docker image). Please make
+sure any custom code is compatible with PHP 8.3 before updating.
+
 ### Changed
 
 - [Update Drupal core to 10.4 #900](https://github.com/farmOS/farmOS/pull/900)
