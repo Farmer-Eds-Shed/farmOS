@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_ui_map\EventSubscriber;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;

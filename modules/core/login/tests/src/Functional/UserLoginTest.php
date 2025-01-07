@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\farm_login\Functional;
 
-use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
@@ -44,12 +45,8 @@ class UserLoginTest extends FarmBrowserTestBase {
 
     // 1. Test for correct text in the login form.
     $this->drupalGet('user/login');
-    $this->assertSession()->pageTextContains($this->t('Email or username'));
-    $this->assertSession()
-      ->pageTextContains($this->t('Enter your @s email address or username.', [
-        '@s' => $this->config('system.site')
-          ->get('name'),
-      ]));
+    $this->assertSession()->pageTextContains('Email or username');
+    $this->assertSession()->pageTextContains('Enter your ' . $this->config('system.site')->get('name') . ' email address or username.');
 
     // 2. Login the user using their username.
     $user = $this->drupalCreateUser([]);
@@ -199,7 +196,7 @@ class UserLoginTest extends FarmBrowserTestBase {
 
     // @see ::drupalUserIsLoggedIn()
     $account->sessionId = $this->getSession()->getCookie(\Drupal::service('session_configuration')->getOptions(\Drupal::request())['name']);
-    $this->assertTrue($this->drupalUserIsLoggedIn($account), new FormattableMarkup('User %name successfully logged in.', ['%name' => $account->getAccountName()]));
+    $this->assertTrue($this->drupalUserIsLoggedIn($account), 'User ' . $account->getAccountName() . ' successfully logged in.');
 
     $this->loggedInUser = $account;
     $this->container->get('current_user')->setAccount($account);

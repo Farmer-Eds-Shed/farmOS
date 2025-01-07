@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_log_category\Form;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;

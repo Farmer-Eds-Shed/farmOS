@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_csv\Normalizer;
 
 use Drupal\fraction\Plugin\Field\FieldType\FractionItem;

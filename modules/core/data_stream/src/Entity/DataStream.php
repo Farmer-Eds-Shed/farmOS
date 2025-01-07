@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\data_stream\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
@@ -154,7 +156,7 @@ class DataStream extends ContentEntityBase implements DataStreamInterface {
    *   A new unique key.
    */
   public static function createUniqueKey() {
-    return hash('md5', mt_rand());
+    return hash('md5', (string) mt_rand());
   }
 
   /**

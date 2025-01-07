@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\tests\farm_login\Functional;
 
 use Drupal\Component\Serialization\Json;

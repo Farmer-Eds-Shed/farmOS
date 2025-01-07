@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\farm_quick_inventory\Kernel;
 
 use Drupal\Core\Datetime\DrupalDateTime;

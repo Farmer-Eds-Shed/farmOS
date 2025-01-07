@@ -5,6 +5,8 @@
  * Code for creating farmOS entity location base field definitions.
  */
 
+declare(strict_types=1);
+
 use Drupal\farm_location\Field\AssetGeometryItemList;
 use Drupal\farm_location\Field\AssetLocationItemList;
 

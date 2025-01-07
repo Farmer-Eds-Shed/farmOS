@@ -5,6 +5,8 @@
  * Updates farm_entity_fields module.
  */
 
+declare(strict_types=1);
+
 /**
  * Install farm_parent module.
  */

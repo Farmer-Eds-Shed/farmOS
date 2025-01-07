@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\farm_group\Kernel;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -219,7 +221,7 @@ class GroupTest extends KernelTestBase {
     // When a group assignment log is created with no group references, it
     // effectively "unsets" the asset's group membership.
     $this->assertFalse($this->groupMembership->hasGroup($animal), 'Asset group membership can be unset.');
-    $this->assertCorrectAssets([], $this->groupMembership->getGroup($animal), 'Unset group membership does not reference any groups.');
+    $this->assertCorrectAssets([], $this->groupMembership->getGroup($animal), TRUE, 'Unset group membership does not reference any groups.');
     $this->assertCorrectAssets([], $this->groupMembership->getGroupMembers([$first_group]), TRUE, 'Unset group membership unsets group members.');
     $this->assertCorrectAssets([], $this->groupMembership->getGroupMembers([$second_group]), TRUE, 'Unset group membership unsets group members.');
 

@@ -5,6 +5,8 @@
  * Post update hooks for the farm_plant_type module.
  */
 
+declare(strict_types=1);
+
 use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Core\Entity\Entity\EntityViewDisplay;
 use Drupal\field\Entity\FieldConfig;

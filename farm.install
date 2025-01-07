@@ -5,6 +5,8 @@
  * Install, update and uninstall functions for the farmOS installation profile.
  */
 
+declare(strict_types=1);
+
 use Drupal\Component\Serialization\Json;
 
 /**

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_material\EventSubscriber;
 
 use Drupal\quantity\Event\QuantityEvent;

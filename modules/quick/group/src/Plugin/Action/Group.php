@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_quick_group\Plugin\Action;
 
 use Drupal\farm_quick\Plugin\Action\QuickFormActionBase;

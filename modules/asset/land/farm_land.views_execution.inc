@@ -5,6 +5,8 @@
  * Provides Views runtime hooks for farm_land.module.
  */
 
+declare(strict_types=1);
+
 use Drupal\farm_land\Entity\FarmLandType;
 use Drupal\views\ViewExecutable;
 

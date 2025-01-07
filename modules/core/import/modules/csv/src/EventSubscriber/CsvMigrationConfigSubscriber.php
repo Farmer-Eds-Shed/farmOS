@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_import_csv\EventSubscriber;
 
 use Drupal\Core\Config\ConfigCrudEvent;

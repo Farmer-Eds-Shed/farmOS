@@ -5,6 +5,8 @@
  * Post update functions for farm_settings module.
  */
 
+declare(strict_types=1);
+
 /**
  * Remove farm_api consumer bundle fields.
  */

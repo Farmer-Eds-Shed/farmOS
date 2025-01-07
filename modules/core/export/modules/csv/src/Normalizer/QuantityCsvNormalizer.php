@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\farm_export_csv\Normalizer;
 
 use Drupal\farm_csv\Normalizer\ContentEntityNormalizer;
