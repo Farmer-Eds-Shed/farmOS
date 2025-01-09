@@ -57,7 +57,7 @@ class ModulesFormTest extends WebDriverTestBase {
     // Assert that installed modules are checked and disabled.
     foreach (['farm_land', 'farm_observation'] as $module) {
       $this->assertModuleCheckboxState('core', $module, TRUE, TRUE);
-    };
+    }
 
     // Assert that uninstalled modules are unchecked.
     foreach (['farm_plant', 'farm_maintenance'] as $module) {
