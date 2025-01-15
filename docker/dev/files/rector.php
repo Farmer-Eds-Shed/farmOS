@@ -9,17 +9,12 @@ declare(strict_types=1);
 
 use DrupalFinder\DrupalFinderComposerRuntime;
 use DrupalRector\Set\Drupal10SetList;
-use DrupalRector\Set\Drupal8SetList;
-use DrupalRector\Set\Drupal9SetList;
 use Rector\Config\RectorConfig;
 
 return static function (RectorConfig $rectorConfig): void {
-  // Adjust the set lists to be more granular to your Drupal requirements.
-  // @todo find out how to only load the relevant rector rules.
-  //   Should we try and load \Drupal::VERSION and check?
+
+  // Check against the Drupal 10 set list.
   $rectorConfig->sets([
-    Drupal8SetList::DRUPAL_8,
-    Drupal9SetList::DRUPAL_9,
     Drupal10SetList::DRUPAL_10,
   ]);
 
