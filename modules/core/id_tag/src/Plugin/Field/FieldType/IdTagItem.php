@@ -12,6 +12,10 @@ use Drupal\Core\TypedData\DataDefinition;
 
 /**
  * Plugin implementation of the 'ID tag' field type.
+ *
+ * @property ?string $id
+ * @property ?string $type
+ * @property ?string $location
  */
 #[FieldType(
   id: 'id_tag',
