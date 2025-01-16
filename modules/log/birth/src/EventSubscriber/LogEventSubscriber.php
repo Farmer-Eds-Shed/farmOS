@@ -39,7 +39,7 @@ class LogEventSubscriber implements EventSubscriberInterface {
    * @return array
    *   The event names to listen for, and the methods that should be executed.
    */
-  public static function getSubscribedEvents() {
+  public static function getSubscribedEvents(): array {
     return [
       LogEvent::INSERT => 'syncBirthChildren',
       LogEvent::UPDATE => 'syncBirthChildren',

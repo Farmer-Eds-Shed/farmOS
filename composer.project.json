@@ -11,6 +11,7 @@
         "drupal/coder": "^8.3",
         "mglaman/phpstan-drupal": "^1.1",
         "mikey179/vfsstream": "^1.6",
+        "palantirnet/drupal-rector": "^0.20.3",
         "phpstan/extension-installer": "^1.1",
         "phpcompatibility/php-compatibility": "^9",
         "phpstan/phpstan": "^1.8",
