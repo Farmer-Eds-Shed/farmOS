@@ -122,6 +122,7 @@ abstract class QuickFormTestBase extends KernelTestBase {
   protected function submitQuickForm(array $values = []) {
     $form_arg = '\Drupal\farm_quick\Form\QuickForm';
     $form_state = (new FormState())->setValues($values);
+    // @phpstan-ignore arguments.count
     \Drupal::formBuilder()->submitForm($form_arg, $form_state, $this->quickFormId);
   }
 
