@@ -28,13 +28,6 @@ parameters:
       layer_style:
         class: Drupal\farm_map\Entity\LayerStyle
         storage: Drupal\Core\Config\Entity\ConfigEntityStorage
-      # @todo Remove log and log_type once included in drupal/log module.
-      log:
-        class: Drupal\log\Entity\Log
-        storage: Drupal\log\LogStorage
-      log_type:
-        class: Drupal\log\Entity\LogType
-        storage: Drupal\Core\Config\Entity\ConfigEntityStorage
       map_behavior:
         class: Drupal\farm_map\Entity\MapBehavior
         storage: Drupal\Core\Config\Entity\ConfigEntityStorage
