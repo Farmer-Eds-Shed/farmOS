@@ -4,24 +4,23 @@ declare(strict_types=1);
 
 namespace Drupal\farm_field\Plugin\Field\FieldFormatter;
 
+use Drupal\Core\Field\Attribute\FieldFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\Plugin\Field\FieldFormatter\BooleanFormatter;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 
 /**
  * Plugin implementation of the 'hideable_boolean' formatter.
  *
  * Extends the core BooleanFormatter to provide settings to conditionally hide
  * a field.
- *
- * @FieldFormatter(
- *   id = "hideable_boolean",
- *   label = @Translation("Hideable Boolean"),
- *   field_types = {
- *     "boolean",
- *   }
- * )
  */
+#[FieldFormatter(
+  id: 'hideable_boolean',
+  label: new TranslatableMarkup('Hideable Boolean'),
+  field_types: ['boolean'],
+)]
 class HideableBoolean extends BooleanFormatter {
 
   /**

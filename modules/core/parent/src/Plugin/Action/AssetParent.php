@@ -4,22 +4,23 @@ declare(strict_types=1);
 
 namespace Drupal\farm_parent\Plugin\Action;
 
+use Drupal\Core\Action\Attribute\Action;
 use Drupal\Core\Action\Plugin\Action\EntityActionBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\TempStore\PrivateTempStoreFactory;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Action that assigns asset parent.
- *
- * @Action(
- *   id = "asset_parent_action",
- *   label = @Translation("Assign asset parent."),
- *   type = "asset",
- *   confirm_form_route_name = "farm_parent.asset_parent_action_form"
- * )
  */
+#[Action(
+  id: 'asset_parent_action',
+  label: new TranslatableMarkup('Assign asset parent.'),
+  type: 'asset',
+  confirm_form_route_name: 'farm_parent.asset_parent_action_form',
+)]
 class AssetParent extends EntityActionBase {
 
   /**

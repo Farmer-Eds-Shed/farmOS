@@ -4,22 +4,23 @@ declare(strict_types=1);
 
 namespace Drupal\farm_id_tag\Plugin\Field\FieldType;
 
+use Drupal\Core\Field\Attribute\FieldType;
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\TypedData\DataDefinition;
 
 /**
  * Plugin implementation of the 'ID tag' field type.
- *
- * @FieldType(
- *   id = "id_tag",
- *   label = @Translation("ID tag"),
- *   description = @Translation("This field stores a combination of id, tag type and location."),
- *   no_ui = TRUE,
- *   default_widget = "id_tag",
- *   default_formatter = "id_tag"
- * )
  */
+#[FieldType(
+  id: 'id_tag',
+  label: new TranslatableMarkup('ID tag'),
+  description: new TranslatableMarkup('This field stores a combination of id, tag type and location.'),
+  default_widget: 'id_tag',
+  default_formatter: 'id_tag',
+  no_ui: TRUE,
+)]
 class IdTagItem extends FieldItemBase {
 
   /**

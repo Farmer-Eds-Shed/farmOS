@@ -4,21 +4,22 @@ declare(strict_types=1);
 
 namespace Drupal\farm_inventory\Plugin\Field\FieldType;
 
+use Drupal\Core\Field\Attribute\FieldType;
 use Drupal\Core\Field\FieldItemBase;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\TypedData\DataDefinition;
 
 /**
  * Plugin implementation of the 'Inventory' field type.
- *
- * @FieldType(
- *   id = "inventory",
- *   label = @Translation("Inventory"),
- *   description = @Translation("This field stores asset inventory information."),
- *   category = @Translation("farmOS"),
- *   no_ui = TRUE,
- * )
  */
+#[FieldType(
+  id: 'inventory',
+  label: new TranslatableMarkup('Inventory'),
+  description: new TranslatableMarkup('This field stores asset inventory information.'),
+  category: 'farmOS',
+  no_ui: TRUE,
+)]
 class InventoryItem extends FieldItemBase {
 
   /**

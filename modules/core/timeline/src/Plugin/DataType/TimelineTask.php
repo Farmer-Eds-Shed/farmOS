@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace Drupal\farm_timeline\Plugin\DataType;
 
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\TypedData\Attribute\DataType;
 use Drupal\Core\TypedData\ComplexDataInterface;
 use Drupal\Core\TypedData\Plugin\DataType\ItemList;
 use Drupal\Core\TypedData\Plugin\DataType\Map;
 
 /**
  * Timeline task data type.
- *
- * @DataType(
- *   id = "farm_timeline_task",
- *   label = @Translation("Timeline Task"),
- *   definition_class = "\Drupal\farm_timeline\TypedData\TimelineTaskDefinition"
- * )
  */
+#[DataType(
+  id: 'farm_timeline_task',
+  label: new TranslatableMarkup('Timeline Task'),
+  definition_class: '\Drupal\farm_timeline\TypedData\TimelineTaskDefinition',
+)]
 class TimelineTask extends Map implements ComplexDataInterface {
 
   /**

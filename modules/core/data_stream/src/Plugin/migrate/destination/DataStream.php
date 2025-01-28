@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\data_stream\Plugin\migrate\destination;
 
+use Drupal\migrate\Attribute\MigrateDestination;
 use Drupal\migrate\Plugin\migrate\destination\EntityContentBase;
 use Drupal\migrate\Row;
 
@@ -14,12 +15,10 @@ use Drupal\migrate\Row;
  * to assets that provide data streams. This is necessary because there was
  * no concept of data streams in farmOS 1.x. When creating a data stream from a
  * sensor asset, we need to reference the asset at this time.
- *
- * @MigrateDestination(
- *   id = "data_stream",
- *   provider = "data_stream"
- * )
  */
+#[MigrateDestination(
+  id: 'data_stream',
+)]
 class DataStream extends EntityContentBase {
 
   /**

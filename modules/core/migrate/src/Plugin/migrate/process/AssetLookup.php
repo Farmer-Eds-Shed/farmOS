@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\farm_migrate\Plugin\migrate\process;
 
 use Drupal\Component\Uuid\Uuid;
+use Drupal\migrate\Attribute\MigrateProcess;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\MigrateSkipRowException;
 use Drupal\migrate\Row;
@@ -32,14 +33,12 @@ use Drupal\migrate_plus\Plugin\migrate\process\EntityLookup;
  *     plugin: asset_lookup
  *     source: asset
  * @endcode
-
  * @codingStandardsIgnoreEnd
- *
- * @MigrateProcessPlugin(
- *   id = "asset_lookup",
- *   handle_multiples = FALSE
- * )
  */
+#[MigrateProcess(
+  id: 'asset_lookup',
+  handle_multiples: FALSE,
+)]
 class AssetLookup extends EntityLookup {
 
   /**

@@ -6,6 +6,7 @@ namespace Drupal\data_stream\Plugin\migrate\process;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\migrate\Attribute\MigrateProcess;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
@@ -16,11 +17,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * This is helpful in migrating data that was previously associated with
  * a sensor asset ID.
- *
- * @MigrateProcessPlugin(
- *   id = "data_stream_from_asset"
- * )
  */
+#[MigrateProcess(
+  id: 'data_stream_from_asset',
+)]
 class DataStreamFromAsset extends ProcessPluginBase implements ContainerFactoryPluginInterface {
 
   /**

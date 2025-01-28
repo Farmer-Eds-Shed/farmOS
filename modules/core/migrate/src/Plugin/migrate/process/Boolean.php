@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\farm_migrate\Plugin\migrate\process;
 
+use Drupal\migrate\Attribute\MigrateProcess;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
@@ -22,13 +23,11 @@ use Drupal\migrate\Row;
  *     plugin: boolean
  *     source: is_movement
  * @endcode
-
  * @codingStandardsIgnoreEnd
- *
- * @MigrateProcessPlugin(
- *   id = "boolean"
- * )
  */
+#[MigrateProcess(
+  id: 'boolean',
+)]
 class Boolean extends ProcessPluginBase {
 
   /**
