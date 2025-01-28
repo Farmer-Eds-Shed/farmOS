@@ -7,6 +7,7 @@ namespace Drupal\farm_quick\Controller;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
+use Drupal\farm_quick\Plugin\QuickForm\ConfigurableQuickFormInterface;
 use Drupal\farm_quick\QuickFormPluginManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -56,7 +57,7 @@ class QuickFormAddPage extends ControllerBase {
 
     // Filter to configurable quick form plugins.
     $plugins = array_filter($this->quickFormPluginManager->getDefinitions(), function (array $plugin) {
-      if (($instance = $this->quickFormPluginManager->createInstance($plugin['id'])) && $instance->isConfigurable()) {
+      if (($instance = $this->quickFormPluginManager->createInstance($plugin['id'])) && $instance instanceof ConfigurableQuickFormInterface) {
         return TRUE;
       }
       return FALSE;
