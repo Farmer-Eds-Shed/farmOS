@@ -45,6 +45,7 @@ class LocationAPITest extends FarmBrowserTestBase {
     // Setup the request.
     $request_options[RequestOptions::HEADERS]['Accept'] = 'application/vnd.api+json';
     $request_options[RequestOptions::HEADERS]['Content-Type'] = 'application/vnd.api+json';
+    // @phpstan-ignore binaryOp.invalid
     $request_options[RequestOptions::HEADERS]['Authorization'] = 'Basic ' . base64_encode($this->user->name->value . ':' . $this->user->passRaw);
     $asset_uri = "base://api/asset/object";
 

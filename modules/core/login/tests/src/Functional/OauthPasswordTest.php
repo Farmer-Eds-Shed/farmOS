@@ -55,6 +55,7 @@ class OauthPasswordTest extends OauthTestBase {
       'client_id' => $this->client->get('client_id')->value,
       'client_secret' => $this->clientSecret,
       'username' => $this->user->getAccountName(),
+      // @phpstan-ignore property.notFound
       'password' => $this->user->pass_raw,
       'scope' => $this->scope,
     ];
@@ -79,6 +80,7 @@ class OauthPasswordTest extends OauthTestBase {
       'client_id' => $this->client->get('client_id')->value,
       'client_secret' => $this->clientSecret,
       'username' => $this->user->getAccountName(),
+      // @phpstan-ignore property.notFound
       'password' => $this->user->pass_raw,
       'scope' => $this->scope,
     ];

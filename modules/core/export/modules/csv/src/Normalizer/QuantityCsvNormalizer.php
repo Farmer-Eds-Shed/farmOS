@@ -29,6 +29,7 @@ class QuantityCsvNormalizer extends ContentEntityNormalizer {
       $data = [
         'log_id' => $log->id(),
         'log_status' => $log->get('status')->value,
+        // @phpstan-ignore method.notFound
         'log_timestamp' => $this->serializer->normalize($log->get('timestamp')->first(), $format, $context),
         'log_type' => $log->bundle(),
         'log_name' => $log->getName(),

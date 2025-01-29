@@ -95,6 +95,7 @@ class ContentEntityGeometryNormalizer implements NormalizerInterface, Serializer
 
     // Normalize the GeometryWrapper object to the target type.
     $geometry_wrapper = new GeometryWrapper($geometry, $properties);
+    // @phpstan-ignore method.notFound
     return $this->serializer->normalize($geometry_wrapper, $format, $context);
   }
 
