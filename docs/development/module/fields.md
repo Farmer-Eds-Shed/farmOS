@@ -112,7 +112,7 @@ field to an entity type, you will need to provide an [update hook](updates) (in
 addition to the base/bundle field declaration described above), which instructs
 Drupal to install the new field when database updates are run (either via
 `/update.php` or `drush updb`). This update hook should be added to a file
-called `[module-name].post-update.php` in the root of the module's directory.
+called `[module-name].post_update.php` in the root of the module's directory.
 The update hook is just a PHP function with a name in the form:
 `[module-name]_post_update_[update-name]()`.
 
