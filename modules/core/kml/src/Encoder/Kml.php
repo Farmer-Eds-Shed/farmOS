@@ -16,6 +16,12 @@ use Drupal\serialization\Encoder\XmlEncoder;
  *
  * @see \Symfony\Component\Serializer\Encoder\XmlEncoder
  *
+ * PHPStan throws the following error on the next line:
+ * Class Drupal\farm_kml\Encoder\Kml extends @internal class
+ * Drupal\serialization\Encoder\XmlEncoder.
+ * We ignore this because we intentionally extend the core XmlEncoder class,
+ * even though it is marked @internal, and take responsibility for it working
+ * correctly.
  * @phpstan-ignore-next-line
  */
 class Kml extends XmlEncoder {

@@ -95,6 +95,10 @@ class ContentEntityGeometryNormalizer implements NormalizerInterface, Serializer
 
     // Normalize the GeometryWrapper object to the target type.
     $geometry_wrapper = new GeometryWrapper($geometry, $properties);
+    // PHPStan level 2+ throws the following error on the next line:
+    // Call to an undefined method
+    // Symfony\Component\Serializer\SerializerInterface::normalize().
+    // We ignore this because we are following Drupal core's pattern.
     // @phpstan-ignore method.notFound
     return $this->serializer->normalize($geometry_wrapper, $format, $context);
   }

@@ -178,6 +178,10 @@ class SensorDataApiTest extends FarmBrowserTestBase {
   protected function processRequest(string $method, Url $url, array $request_options = []) {
     $this->refreshVariables();
     $request_options[RequestOptions::HTTP_ERRORS] = FALSE;
+    // PHPStan level 2+ throws the following error on the next line:
+    // Call to an undefined method
+    // Behat\Mink\Driver\DriverInterface::getClient().
+    // We ignore this because we are following Drupal core's pattern.
     // @phpstan-ignore method.notFound
     $client = $this->getSession()->getDriver()->getClient()->getClient();
     return $client->request($method, $url->setAbsolute(TRUE)->toString(), $request_options);
