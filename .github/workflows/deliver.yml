@@ -19,7 +19,9 @@ jobs:
 
   build:
     name: Build Docker images
-    runs-on: ubuntu-latest
+    # Pin to Ubuntu 22.04 to work around upstream issue with QEMU and binfmt.
+    # @see https://github.com/tonistiigi/binfmt/issues/215
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         platform:
