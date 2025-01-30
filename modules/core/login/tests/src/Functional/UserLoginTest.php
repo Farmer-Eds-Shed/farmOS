@@ -93,6 +93,11 @@ class UserLoginTest extends FarmBrowserTestBase {
 
     $user1 = $this->drupalCreateUser([]);
     $incorrect_user1 = clone $user1;
+    // PHPStan level 2+ throws the following error on the next line:
+    // Binary operation ".=" between Drupal\Core\Field\FieldItemListInterface
+    // and 'incorrect' results in an error.
+    // We ignore this because we are following Drupal core's pattern.
+    // @phpstan-ignore assignOp.invalid
     $incorrect_user1->passRaw .= 'incorrect';
 
     $user2 = $this->drupalCreateUser([]);
@@ -191,10 +196,20 @@ class UserLoginTest extends FarmBrowserTestBase {
     $this->drupalGet(Url::fromRoute('user.login'));
     $this->submitForm([
       'name' => $account->getEmail(),
+      // PHPStan level 2+ throws the following error on the next line:
+      // Access to an undefined property
+      // Drupal\Core\Session\AccountInterface::$passRaw.
+      // We ignore this because we are following Drupal core's pattern.
+      // @phpstan-ignore property.notFound
       'pass' => $account->passRaw,
     ], 'Log in');
 
+    // PHPStan level 2+ throws the following error on the next line:
+    // Access to an undefined property
+    // Drupal\Core\Session\AccountInterface::$sessionId.
+    // We ignore this because we are following Drupal core's pattern.
     // @see ::drupalUserIsLoggedIn()
+    // @phpstan-ignore property.notFound
     $account->sessionId = $this->getSession()->getCookie(\Drupal::service('session_configuration')->getOptions(\Drupal::request())['name']);
     $this->assertTrue($this->drupalUserIsLoggedIn($account), 'User ' . $account->getAccountName() . ' successfully logged in.');
 

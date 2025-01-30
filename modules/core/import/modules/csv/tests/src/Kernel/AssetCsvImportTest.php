@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Drupal\Tests\farm_import_csv\Kernel;
 
 use Drupal\asset\Entity\Asset;
+use Drupal\farm_id_tag\Plugin\Field\FieldType\IdTagItem;
+use Drupal\text\Plugin\Field\FieldType\TextLongItem;
 
 /**
  * Tests for asset CSV importers.
@@ -114,16 +116,28 @@ class AssetCsvImportTest extends CsvImportTestBase {
       $this->assertEquals($expected_values[$id]['manufacturer'], $asset->get('manufacturer')->value);
       $this->assertEquals($expected_values[$id]['model'], $asset->get('model')->value);
       $this->assertEquals($expected_values[$id]['serial_number'], $asset->get('serial_number')->value);
-      $this->assertEquals($expected_values[$id]['id_tag']['id'], $asset->get('id_tag')->id);
-      $this->assertEquals($expected_values[$id]['id_tag']['type'], $asset->get('id_tag')->type);
-      $this->assertEquals($expected_values[$id]['id_tag']['location'], $asset->get('id_tag')->location);
+
+      // If no tag ID is provided ensure we have an empty field.
+      if (empty($expected_values[$id]['id_tag']['id'])) {
+        $this->assertTrue($asset->get('id_tag')->isEmpty());
+      }
+      // Else check that all id_tag properties match.
+      else {
+        $id_tag = $asset->get('id_tag')->first();
+        $this->assertInstanceOf(IdTagItem::class, $id_tag);
+        $this->assertEquals($expected_values[$id]['id_tag']['id'], $id_tag->id);
+        $this->assertEquals($expected_values[$id]['id_tag']['type'], $id_tag->type);
+        $this->assertEquals($expected_values[$id]['id_tag']['location'], $id_tag->location);
+      }
+
       $parents = $asset->get('parent')->referencedEntities();
       $this->assertEquals(count($expected_values[$id]['parents']), count($parents));
       foreach ($parents as $parent) {
         $this->assertContains($parent->label(), $expected_values[$id]['parents']);
       }
       $this->assertEquals($expected_values[$id]['notes'], $asset->get('notes')->value);
-      $this->assertEquals('default', $asset->get('notes')->format);
+      $this->assertInstanceOf(TextLongItem::class, $asset->get('notes')->first());
+      $this->assertEquals('default', $asset->get('notes')->first()->format);
       $this->assertEquals($expected_values[$id]['status'], $asset->get('status')->value);
       $this->assertEquals('Imported via CSV.', $asset->getRevisionLogMessage());
     }

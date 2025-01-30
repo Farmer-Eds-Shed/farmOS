@@ -32,12 +32,12 @@ interface DataStreamNotificationInterface extends ConfigEntityInterface, EntityW
    * Helper function to reset the notification state.
    *
    * @param bool $active
-   *   Boolean indicating if the notification is active.
+   *   Boolean indicating if the notification is active. Defaults to FALSE.
    *
    * @return array
    *   The new notification state.
    */
-  public function resetState(bool $active): array;
+  public function resetState(bool $active = FALSE): array;
 
   /**
    * Helper function to increment the notification state.
@@ -49,5 +49,13 @@ interface DataStreamNotificationInterface extends ConfigEntityInterface, EntityW
    *   The new notification state.
    */
   public function incrementState(string $key): array;
+
+  /**
+   * Helper function to return the state key for the notification.
+   *
+   * @return string
+   *   The state key.
+   */
+  public function getStateKey(): string;
 
 }

@@ -13,6 +13,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Configure the selected language negotiation method for this site.
  *
+ * @see \Drupal\language\Form\NegotiationSelectedForm
+ *
+ * PHPStan throws the following error on the next line:
+ * Class Drupal\farm_l10n\Form\L10nSettingsForm extends @internal class
+ * Drupal\language\Form\NegotiationSelectedForm.
+ * We ignore this because we intentionally extend the core
+ * NegotiationSelectedForm, even though it is marked @internal, and take
+ * responsibility for it working correctly.
  * @phpstan-ignore-next-line
  */
 class L10nSettingsForm extends NegotiationSelectedForm {
